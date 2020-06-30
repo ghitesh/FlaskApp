@@ -8,3 +8,6 @@ activate venv
 pip install requirements
 
 
+====
+PyCharm -> VCS -> Get from version control.
+In preferences add interpreter to add venv
