@@ -1,0 +1,2 @@
+from .hospital import app 
+

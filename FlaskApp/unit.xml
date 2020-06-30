@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="6" hostname="C02YH01HH7VF.local" name="pytest" skipped="0" tests="41" time="0.850" timestamp="2020-06-28T23:05:32.691612"><testcase classname="application.tests_routes.Test_hospitalAPI" file="application/tests_routes.py" line="25" name="test_data_in_db_before" time="0.033"></testcase><testcase classname="application.tests_routes.Test_hospitalAPI" file="application/tests_routes.py" line="29" name="test_display_list_hospitals_before_adding" time="0.005"></testcase><testcase classname="application.tests_routes.Test_hospitalAPI" file="application/tests_routes.py" line="36" name="test_successful_registration" time="0.005"></testcase><testcase classname="application.tests_routes.Test_hospitalAPI" file="application/tests_routes.py" line="45" name="test_failed_registration" time="0.004"></testcase><testcase classname="application.tests_routes.Test_hospitalAPI" file="application/tests_routes.py" line="54" name="test_data_in_db_after" time="0.002"></testcase><testcase classname="application.tests_routes.Test_hospitalAPI" file="application/tests_routes.py" line="59" name="test_display_list_hospitals" time="0.003"></testcase><testcase classname="application.tests_routes.Test_hospitalAPI" file="application/tests_routes.py" line="65" name="test_search_hospital_success" time="0.003"></testcase><testcase classname="application.tests_routes.Test_hospitalAPI" file="application/tests_routes.py" line="71" name="test_search_hospital_failure" time="0.003"></testcase><testcase classname="application.tests_routes.Test_testcenterAPI" file="application/tests_routes.py" line="90" name="test_testcenter_in_db_before_Adding" time="0.003"></testcase><testcase classname="application.tests_routes.Test_testcenterAPI" file="application/tests_routes.py" line="94" name="test_list_all_centers_before_adding" time="0.002"></testcase><testcase classname="application.tests_routes.Test_testcenterAPI" file="application/tests_routes.py" line="100" name="test_add_centers" time="0.006"></testcase><testcase classname="application.tests_routes.Test_testcenterAPI" file="application/tests_routes.py" line="109" name="test_testcenter_in_db_after_Adding" time="0.002"></testcase><testcase classname="application.tests_routes.Test_testcenterAPI" file="application/tests_routes.py" line="113" name="test_list_all_centers" time="0.003"></testcase><testcase classname="application.tests_routes.Test_testcenterAPI" file="application/tests_routes.py" line="119" name="test_centers_under_hopsital_success" time="0.003"></testcase><testcase classname="application.tests_routes.Test_testcenterAPI" file="application/tests_routes.py" line="125" name="test_centers_under_hopsital_failure" time="0.002"></testcase><testcase classname="application.tests_routes.Test_testcenterAPI" file="application/tests_routes.py" line="131" name="test_request_booking_a_center_success" time="0.006"></testcase><testcase classname="application.tests_routes.Test_testcenterAPI" file="application/tests_routes.py" line="140" name="test_request_booking_a_center_failure" time="0.004"></testcase><testcase classname="application.tests_routes.Test_testcenterAPI" file="application/tests_routes.py" line="149" name="test_request_booking_a_center_failure_invalid_details" time="0.002"></testcase><testcase classname="application.tests_routes.Test_testcenterAPI" file="application/tests_routes.py" line="158" name="test_request_booking_in_db_before_approval" time="0.002"></testcase><testcase classname="application.tests_routes.Test_testcenterAPI" file="application/tests_routes.py" line="164" name="test_request_approve_booking_success" time="0.006"></testcase><testcase classname="application.tests_routes.Test_testcenterAPI" file="application/tests_routes.py" line="170" name="test_request_approve_booking_failure" time="0.003"></testcase><testcase classname="application.tests_routes.Test_testcenterAPI" file="application/tests_routes.py" line="177" name="test_booking_status_for_users_before_approval" time="0.002"></testcase><testcase classname="application.tests_routes.Test_testcenterAPI" file="application/tests_routes.py" line="183" name="test_request_booking_in_db_after_approval" time="0.001"></testcase><testcase classname="application.tests_routes.Test_testcenterAPI" file="application/tests_routes.py" line="189" name="test_booking_status_for_users_after_approval" time="0.003"></testcase><testcase classname="application.tests_routes.Test_testcenterAPI" file="application/tests_routes.py" line="195" name="test_booking_status_for_users_failure" time="0.003"></testcase><testcase classname="application.tests_routes.Test_UserAPI" file="application/tests_routes.py" line="213" name="test_successful_registration" time="0.007"></testcase><testcase classname="application.tests_routes.Test_UserAPI" file="application/tests_routes.py" line="221" name="test_failed_registration" time="0.003"></testcase><testcase classname="application.tests_routes.Test_UserAPI" file="application/tests_routes.py" line="229" name="test_successful__user_login" time="0.006"></testcase><testcase classname="application.tests_routes.Test_UserAPI" file="application/tests_routes.py" line="238" name="test_user_logout" time="0.003"></testcase><testcase classname="application.tests_routes.Test_UserAPI" file="application/tests_routes.py" line="246" name="test_failed_user_login" time="0.003"></testcase><testcase classname="application.tests_routes.Test_UserAPI" file="application/tests_routes.py" line="254" name="test_failed_user_logout" time="0.003"></testcase><testcase classname="application.tests_routes.Test_UserAPI_calling_otherAPIs" file="application/tests_routes.py" line="273" name="test_list_hospitals_without_login" time="0.003"></testcase><testcase classname="application.tests_routes.Test_UserAPI_calling_otherAPIs" file="application/tests_routes.py" line="280" name="test_list_hospitals_with_login" time="0.016"><failure message="assert 500 == 200
+ +  where 500 = &lt;Response streamed [500 INTERNAL SERVER ERROR]&gt;.status_code">self = &lt;application.tests_routes.Test_UserAPI_calling_otherAPIs object at 0x10ba63278&gt;
+
+    def test_list_hospitals_with_login(self):
+        valid_credentials = base64.b64encode(b&apos;test01:test&apos;).decode(&apos;UTF-8&apos;)
+        response = self.client.post(&apos;/login&apos;, headers={&apos;Authorization&apos;: &apos;Basic &apos; + valid_credentials})
+        assert response.status_code == 200
+    
+        url=&quot;/list/hospitals&quot;
+        response = self.client.get(url)
+        #assert response.content == &apos;Login to proceed&apos;
+&gt;       assert response.status_code == 200
+E       assert 500 == 200
+E        +  where 500 = &lt;Response streamed [500 INTERNAL SERVER ERROR]&gt;.status_code
+
+application/tests_routes.py:289: AssertionError</failure></testcase><testcase classname="application.tests_routes.Test_UserAPI_calling_otherAPIs" file="application/tests_routes.py" line="292" name="test_search_hospital_name_without_login" time="0.010"><failure message="assert 500 == 400
+ +  where 500 = &lt;Response streamed [500 INTERNAL SERVER ERROR]&gt;.status_code">self = &lt;application.tests_routes.Test_UserAPI_calling_otherAPIs object at 0x10ba634e0&gt;
+
+    def test_search_hospital_name_without_login(self):
+        url=&quot;/search/hospital/1&quot;
+        response = self.client.get(url)
+&gt;       assert response.status_code == 400
+E       assert 500 == 400
+E        +  where 500 = &lt;Response streamed [500 INTERNAL SERVER ERROR]&gt;.status_code
+
+application/tests_routes.py:296: AssertionError</failure></testcase><testcase classname="application.tests_routes.Test_UserAPI_calling_otherAPIs" file="application/tests_routes.py" line="298" name="test_list_all_centers_without_login" time="0.007"><failure message="assert 500 == 400
+ +  where 500 = &lt;Response streamed [500 INTERNAL SERVER ERROR]&gt;.status_code">self = &lt;application.tests_routes.Test_UserAPI_calling_otherAPIs object at 0x10ba47ba8&gt;
+
+    def test_list_all_centers_without_login(self):
+        url=&quot;/list/centers&quot;
+        response = self.client.get(url)
+&gt;       assert response.status_code == 400
+E       assert 500 == 400
+E        +  where 500 = &lt;Response streamed [500 INTERNAL SERVER ERROR]&gt;.status_code
+
+application/tests_routes.py:302: AssertionError</failure></testcase><testcase classname="application.tests_routes.Test_UserAPI_calling_otherAPIs" file="application/tests_routes.py" line="304" name="test_booking_center_without_login" time="0.002"><failure message="assert 500 == 400
+ +  where 500 = &lt;Response streamed [500 INTERNAL SERVER ERROR]&gt;.status_code">self = &lt;application.tests_routes.Test_UserAPI_calling_otherAPIs object at 0x10baa1a20&gt;
+
+    def test_booking_center_without_login(self):
+        url=&quot;/book/center&quot;
+        response = self.client.post(url)
+&gt;       assert response.status_code == 400
+E       assert 500 == 400
+E        +  where 500 = &lt;Response streamed [500 INTERNAL SERVER ERROR]&gt;.status_code
+
+application/tests_routes.py:308: AssertionError</failure></testcase><testcase classname="application.tests_routes.Test_UserAPI_calling_otherAPIs" file="application/tests_routes.py" line="310" name="test_status_without_login" time="0.003"><failure message="assert 500 == 400
+ +  where 500 = &lt;Response streamed [500 INTERNAL SERVER ERROR]&gt;.status_code">self = &lt;application.tests_routes.Test_UserAPI_calling_otherAPIs object at 0x10ba74278&gt;
+
+    def test_status_without_login(self):
+        url = &apos;/status&apos;
+        response = self.client.get(url)
+&gt;       assert response.status_code == 400
+E       assert 500 == 400
+E        +  where 500 = &lt;Response streamed [500 INTERNAL SERVER ERROR]&gt;.status_code
+
+application/tests_routes.py:314: AssertionError</failure></testcase><testcase classname="application.tests_routes.Test_UserAPI_calling_otherAPIs" file="application/tests_routes.py" line="316" name="test_status_with_login" time="0.005"><failure message="assert 500 == 200
+ +  where 500 = &lt;Response streamed [500 INTERNAL SERVER ERROR]&gt;.status_code">self = &lt;application.tests_routes.Test_UserAPI_calling_otherAPIs object at 0x10bb4f860&gt;
+
+    def test_status_with_login(self):
+        valid_credentials = base64.b64encode(b&apos;test01:test&apos;).decode(&apos;UTF-8&apos;)
+        response = self.client.post(&apos;/login&apos;, headers={&apos;Authorization&apos;: &apos;Basic &apos; + valid_credentials})
+        assert response.status_code == 200
+    
+        url = &apos;/status&apos;
+        response = self.client.get(url)
+&gt;       assert response.status_code == 200
+E       assert 500 == 200
+E        +  where 500 = &lt;Response streamed [500 INTERNAL SERVER ERROR]&gt;.status_code
+
+application/tests_routes.py:324: AssertionError</failure></testcase><testcase classname="application.tests_routes.Test_ports_API" file="application/tests_routes.py" line="328" name="test_testcenter_app" time="0.005"></testcase><testcase classname="application.tests_routes.Test_ports_API" file="application/tests_routes.py" line="333" name="test_hospital_app" time="0.005"></testcase><testcase classname="application.tests_routes.Test_ports_API" file="application/tests_routes.py" line="338" name="test_user_app" time="0.021"></testcase></testsuite></testsuites>
